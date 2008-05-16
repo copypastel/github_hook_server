@@ -1,0 +1,15 @@
+# The name of your github repo
+test_repo:
+  # Templates can also be specified on a per-hook basis
+  template: "[<%= commit['repo'] %>]: <%= commit['author']['name'] %> <%= commit['message'] %> (<%= commit['url'] %>)"
+  # The hooks configured for this repo
+  hooks:
+    twitter:
+      username: someone@somewhere.com
+      password: mysecretpass
+    campfire:
+      subdomain: mycampfiresubdomain
+      ssl: false
+      username: someone@somwhere.com
+      password: mysecretpass
+      room: "My Campfire Room"
