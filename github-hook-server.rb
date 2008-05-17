@@ -31,7 +31,7 @@ class GithubHookServer
       # Require the appropriate hook
       require "hooks/#{name}"
       # Fire!
-      Module.const_get(clsn).new.invoke(payload, hook_config.last, @config)
+      Module.const_get(clsn).new.process_payload(payload, hook_config.last, @config)
     end
   
     "OMGLITTLEHORSES! IT WORKED!"

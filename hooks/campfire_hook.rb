@@ -3,7 +3,7 @@ require 'erb'
 
 class CampfireHook
 
-  def invoke(payload, hook_config, server_config)
+  def process_payload(payload, hook_config, server_config)
     template = server_config['template'] || hook_config['template']
 
     campfire = Tinder::Campfire.new(hook_config['subdomain'], :ssl => hook_config['ssl'] || false)

@@ -6,7 +6,7 @@ require 'simplemail'
 
 class SendmailHook
   
-  def invoke(payload, hook_config, server_config)
+  def process_payload(payload, hook_config, server_config)
     mail         = SimpleMail.new
     mail.to      = hook_config['to']
     mail.from    = hook_config['from']

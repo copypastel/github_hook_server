@@ -3,7 +3,7 @@ require 'erb'
 
 class TwitterHook
 
-  def invoke(payload, hook_config, server_config)
+  def process_payload(payload, hook_config, server_config)
     template = server_config['template'] || hook_config['template']
     twitter = Twitter::Base.new(hook_config['username'], hook_config['password'])
     erb = ERB.new(template)
