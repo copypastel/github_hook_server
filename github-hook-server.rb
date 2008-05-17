@@ -17,7 +17,7 @@ class GithubHookServer
     payload = JSON.parse(json_payload)
 
     # Quick and dirty sanity check
-    return unless payload.keys.include?("repository")
+    return "Invalid repository" unless payload.keys.include?("repository")
 
     # Grab the repo name
     repo = payload["repository"]["name"]
@@ -39,5 +39,5 @@ class GithubHookServer
 end
 
 post '/' do
-  GithubHookServer.new.process_payload(params['payload']) unless params.keys.include?('payload')
+  GithubHookServer.new.process_payload(params['payload']) if params.keys.include?('payload')
 end
