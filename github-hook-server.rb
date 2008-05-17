@@ -17,7 +17,7 @@ class GithubHookServer
     payload = JSON.parse(json_payload)
 
     # Quick and dirty sanity check
-    return "Invalid repository" unless payload.keys.include?("repository")
+    return unless payload.keys.include?("repository")
 
     # Grab the repo name
     repo = payload["repository"]["name"]
