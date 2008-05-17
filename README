@@ -5,7 +5,7 @@ Toss your github pushes..  anywhere you want!
 requirements
 ============
 Base:
-  sudo gem install json sinatra
+  sudo gem install json sinatra simple-daemon
 
 Twitter:
   sudo gem install twitter
