@@ -17,7 +17,7 @@ instructions
 ============
 cp config.yml.example config.yml
 vim config.yml
-ruby github-hook-server.rb
+./github-hook-server.rb [start|stop]
 
 credits
 =======
