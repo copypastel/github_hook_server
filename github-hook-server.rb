@@ -37,9 +37,13 @@ class GithubHookServer
       hook_data = hook_config.last
       #hack for right now since database only supports plurk... but in future it could be integrated...
       #kindof sucks github does this automatically but doesn't do it for plurk
-      if hook_data["command"] == use_database
-        account = Account.find(payload[:commits])
-        hook_data[:username]
+      #Right now assuming all commits by first author
+      if hook_data["command"] == 'use_database'
+        puts "WHAAA"
+        puts payload['commits'][0]['author']
+        account = Account.first(:email => payload['commits'][0]['author']['email'])
+        hook_data['username'] = account.username
+        hook_data['password'] = account.password
       end
       
       hook_data['template'] = @config['template'] if hook_data['template'].nil?
@@ -68,7 +72,7 @@ get '/account' do
 end
 
 post '/account' do
- k# account = Account.create(:username => params[:username], :password => params[:password])
+ # account = Account.create(:username => params[:username], :password => params[:password])
   account = Account.new
   account.username = params[:username]
   account.password = params[:password]

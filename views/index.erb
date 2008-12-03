@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Github mini hook server</title>
+	</head>
+	<body>
+		<center><h2>Greetings!</h2>
+			    <h3>No account? <a href = "account">create one!</a> </h3>
+		
+		<% if saved == false %>
+			<font color="red">Sorry, could not create account</font>
+		<%end%>
+		
+		<br/>
+		Current Accounts <br/>
+		<% Account.all.each do |account| %>
+		   <%= account.username%>
+			<br/>
+		<%end%>
+		</center>
+		
+		
+		<form method="post" url="/">
+			<textarea name="payload"> </textarea>
+			<br/>
+			<input type="submit" value="Test!"/>
+		</form>
+	</body>
+</html>
