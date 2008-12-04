@@ -13,3 +13,8 @@ test_repo:
       username: someone@somwhere.com
       password: mysecretpass
       room: "My Campfire Room"
+github_repo1:
+  hooks:
+    plurk:
+      template: "[<%= commit['repo'] %>]: <%= commit['url'] %><% length_left = 140 - (commit['repo'].size + commit['url'].size + 7) %> (<%= (commit['message'].size > length_left) ? commit['message'][0..(length_left-4)] << '...' : commit['message'] %>)"
+	  command: use_database
