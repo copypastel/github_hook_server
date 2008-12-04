@@ -39,8 +39,6 @@ class GithubHookServer
       #kindof sucks github does this automatically but doesn't do it for plurk
       #Right now assuming all commits by first author
       if hook_data["command"] == 'use_database'
-        puts "WHAAA"
-        puts payload['commits'][0]['author']
         account = Account.first(:email => payload['commits'][0]['author']['email'])
         hook_data['username'] = account.username
         hook_data['password'] = account.password

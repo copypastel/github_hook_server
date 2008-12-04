@@ -59,10 +59,8 @@ class Plurk
         :no_comments => no_comments
       }
       params[:limited_to] = "[#{limited_to.join(",")}]" unless limited_to.empty?
-      puts "UID: " + @uid
-      
+
       agent.post(@plurk_paths[:plurk_add], params)
-      
 
       data = agent.current_page.body
       return data if data =~ /anti-flood/
