@@ -1,6 +1,4 @@
-TODO: Re-merge old README
-
-to run..
+todo -Re-merge old README
 
 Github Hook Server
 ==================
@@ -12,12 +10,14 @@ The rest is a simple config file
 Getting Started
 ---------------
 edit database-support.rb for your given database
+
 edit config.yml.example and save as config.yml.template
 
-$bash ./init_db.rb
-$bash ./github-hook-server.rb
+     $bash ./init_db.rb
+     $bash ./github-hook-server.rb
 
 You can also run it as a daemon... hack for now
-$bash ./run.rb start
+
+    $bash ./run.rb start
 
 visit localhost:4567 (or whatever sinatra starts on)
